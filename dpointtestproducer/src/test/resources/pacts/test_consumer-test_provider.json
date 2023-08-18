@@ -1,0 +1,199 @@
+{
+  "provider": {
+    "name": "test_provider"
+  },
+  "consumer": {
+    "name": "test_consumer"
+  },
+  "interactions": [
+    {
+      "description": "GET REQUEST for employees",
+      "request": {
+        "method": "GET",
+        "path": "/api/employees"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": [
+          {
+            "firstName": "John",
+            "lastName": "Doe",
+            "id": 1,
+            "email": "john.doe@example.com"
+          },
+          {
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "id": 2,
+            "email": "jane.smith@example.com"
+          },
+          {
+            "firstName": "Michael",
+            "lastName": "Johnson",
+            "id": 3,
+            "email": "michael.johnson@example.com"
+          }
+        ],
+        "matchingRules": {
+          "body": {
+            "$[0].id": {
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[0].firstName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[0].lastName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[0].email": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[1].id": {
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[1].firstName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[1].lastName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[1].email": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[2].id": {
+              "matchers": [
+                {
+                  "match": "integer"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[2].firstName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[2].lastName": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$[2].email": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "test GET employees"
+        }
+      ]
+    },
+    {
+      "description": "GET REQUEST",
+      "request": {
+        "method": "GET",
+        "path": "/pact"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "condition": true,
+          "name": "tom"
+        }
+      },
+      "providerStates": [
+        {
+          "name": "test GET"
+        }
+      ]
+    },
+    {
+      "description": "POST REQUEST",
+      "request": {
+        "method": "POST",
+        "path": "/pact",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Michael"
+        }
+      },
+      "response": {
+        "status": 201
+      },
+      "providerStates": [
+        {
+          "name": "test POST"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "3.6.3"
+    }
+  }
+}

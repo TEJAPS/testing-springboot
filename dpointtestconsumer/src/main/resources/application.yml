@@ -1,0 +1,7 @@
+
+server:
+  port: 9002
+
+employee:
+  api:
+    url: http://localhost:9001
